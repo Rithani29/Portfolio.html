@@ -23,7 +23,7 @@
       --card: #f9f6f1;
     }
 
-    html { scroll-behavior: smooth }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -615,8 +615,22 @@
       nav { padding: 1rem 2rem; }
       .nav-links { gap: 1.2rem; }
       .nav-links a { font-size: 0.78rem; }
-      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; gap: 2rem; min-height: auto; }
-      .hero-visual { display: none; }
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        padding: 7rem 2rem 3rem;
+        gap: 1.5rem;
+        min-height: auto;
+      }
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        order: -1;
+      }
+      .hero-text { order: 1; }
+      .avatar-ring { width: 200px; height: 200px; }
+      .avatar-ring img { width: 155px !important; height: 155px !important; }
+      .float-tag { display: none; }
       .hero-name { font-size: clamp(2.8rem, 8vw, 4rem); }
       section { padding: 4rem 2rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -631,22 +645,32 @@
 
     /* Mobile */
     @media (max-width: 600px) {
-      nav {
-        padding: 0.9rem 1.2rem;
-      }
+      nav { padding: 0.9rem 1.2rem; }
       .nav-logo { font-size: 1.1rem; }
       .nav-links { gap: 0.6rem; }
       .nav-links a { font-size: 0.65rem; letter-spacing: 0.05em; }
 
       .hero {
-        padding: 5.5rem 1.2rem 2.5rem;
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        padding: 5.5rem 1.2rem 2.5rem;
         min-height: auto;
+        gap: 1.2rem;
       }
-      .hero-visual { display: none; }
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        order: -1;
+      }
+      .hero-text { order: 1; text-align: left; }
+      .avatar-ring { width: 160px; height: 160px; }
+      .avatar-ring::before { inset: 8px; }
+      .avatar-ring img { width: 125px !important; height: 125px !important; }
+      .float-tag { display: none; }
+
       .hero-eyebrow { font-size: 0.68rem; }
-      .hero-name { font-size: 2.8rem; line-height: 1.05; }
-      .hero-bio { font-size: 0.95rem; }
+      .hero-name { font-size: 2.5rem; line-height: 1.05; }
+      .hero-bio { font-size: 0.92rem; }
       .hero-actions { flex-direction: column; gap: 0.8rem; }
       .hero-actions a { text-align: center; width: 100%; }
       .hero-social { flex-wrap: wrap; gap: 0.8rem; }
@@ -718,6 +742,7 @@
       </div>
       <div class="float-tag">Build · Explore · Repeat</div>
     </div>
+
   </section>
 
   <!-- ABOUT -->
